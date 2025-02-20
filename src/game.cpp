@@ -3,12 +3,24 @@
 #include <string>
 #include <unistd.h>
 
-#include "game.h"
-#include "obstacles.h"
-#include "player.h"
+#include "game.hpp"
+#include "obstacles.hpp"
+#include "player.hpp"
 
 WINDOW *main_wnd;
 WINDOW *game_wnd;
+
+int rect::top() const { return offset.y; }
+int rect::bot() const { return offset.y + bounds.y; }
+int rect::left() const { return offset.x; }
+int rect::right() const { return offset.x + bounds.x; }
+
+int rect::width() const { return bounds.x; }
+int rect::height() const { return bounds.y; }
+
+bool rect::contains(vec2i a) const{
+  return (a.x >= offset.x && a.x < right()) && (a.y >= offset.y && a.y < bot());
+}
 
 rect game_area;
 rect screen_area;
@@ -210,8 +222,8 @@ bool run(int &max_score) {
       flushinp();
 
       while (1) {
-      input = wgetch(game_wnd);
-      input = tolower(input);
+        input = wgetch(game_wnd);
+        input = tolower(input);
 
         switch (input) {
         case 'r':

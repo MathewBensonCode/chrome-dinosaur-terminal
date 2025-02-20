@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-#include "player.h"
+#include "player.hpp"
 
 /* MAKE THE PLAYABLE CHARACTER SWITCHABLE FROM A MENU */
 

@@ -4,8 +4,8 @@
 #include <ncurses.h>
 #include <random>
 
-#include "game.h"
-#include "obstacles.h"
+#include "game.hpp"
+#include "obstacles.hpp"
 
 int tick = 0;
 

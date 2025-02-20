@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-#include "game.h"
+#include "game.hpp"
 
 struct Player {
   std::vector<vec2i> pos;
